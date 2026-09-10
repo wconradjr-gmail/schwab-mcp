@@ -21,11 +21,11 @@ async def get_advanced_price_history(
         int | str | None,
         "Number of frequencyType per candle (e.g., 1, 5, 10 for MINUTE, 1 for DAILY). Strings are coerced to int.",
     ],
-    end_datetime: Annotated[str | None, "End date for history (ISO format, e.g., '2023-01-31T16:00:00')"] = None,
+    end_datetime: Annotated[str | None, "optional End date for history (ISO format, e.g., '2023-01-31T16:00:00')"] = None,
     extended_hours: Annotated[bool | None, "Include extended hours data"] = None,
     previous_close: Annotated[bool | None, "Include previous close data"] = None,
 ) -> JSONType:
-    """Get price history with advanced period/frequency options. Specify period/frequency OR start/end datetimes.
+    """Get price history with advanced options. Specify start datetime. End datetime optional
 
     frequency 1/5/10/15/30;
     Frequency type options (by period_type):
