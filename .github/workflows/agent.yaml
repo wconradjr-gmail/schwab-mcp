@@ -7,9 +7,11 @@ name: AI Agent
       prompt:
         description: Custom prompt to run
         required: false
+        type: string
       issue_number:
         description: Issue/PR number to comment on
         required: false
+        type: number
 
   issue_comment:
     types: [created]
@@ -71,7 +73,7 @@ jobs:
 
       - name: Setup uv
         # yamllint disable-line rule:line-length rule:comments
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4  # v10.1.0
 
       - name: Setup ruff
         # yamllint disable-line rule:line-length rule:comments
@@ -86,5 +88,4 @@ jobs:
           provider_openai: "no"
           provider_google: "no"
           provider_copilot: "yes"
-          primary_model: github-copilot/claude-opus-4.5
           github_token: ${{ steps.app-token.outputs.token }}
